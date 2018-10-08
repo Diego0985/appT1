@@ -1,0 +1,26 @@
+{
+	"expo": {
+		"name": "CUMBA",
+		"slug": "CUMBA",
+		"githubUrl": "https://github.com/akveo/kittenTricks",
+		"sdkVersion": "24.0.0",
+		"icon": "./logocumba.png",
+		"orientation": "portrait",
+		"loading": {
+			"icon": "./logocumba.png"
+		},
+		"androidStatusBar": {
+			"backgroundColor": "#ffffff"
+		},
+		"ios": {
+			"bundleIdentifier": "com.diego.cumba",
+			"buildNumber": "0.0.1",
+			"supportsTablet": true
+		},
+		"android": {
+			"package": "com.diego.cumba",
+			"versionCode": 1
+		},
+		"version": "0.0.1"
+	}
+}
