@@ -29,8 +29,16 @@ const KittenApp = StackNavigator(
       screen: Screens.SplashScreen
     },
     Home: {
-      screen: Screens.Publish
-    }
+      screen: Screens.ProfileSettings
+    },
+    Publish: { screen: Screens.Publish },
+    Search: { screen: Screens.Search },
+    Notifications: { screen: Screens.Notifications },
+    Settings: { screen: Screens.Settings },
+    SignUp: { screen: Screens.SignUp },
+    PasswordRecovery: { screen: Screens.PasswordRecovery },
+    KeyChange: { screen: Screens.KeyChange },
+    ProfileSettings: { screen: Screens.ProfileSettings }
   },
   {
     headerMode: "none"

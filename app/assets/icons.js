@@ -1,15 +1,15 @@
 export const FontIcons = {
-  login: '',
-  navigation: '',
-  article: '',
-  profile: '',
-  mail: '',
-  dashboard: '',
-  mobile: '',
-  other: '',
-  theme: '',
-  card: '',
-  addToCardForm: '',
+  login: "",
+  navigation: "",
+  article: "",
+  profile: "",
+  mail: "",
+  dashboard: "",
+  mobile: "",
+  other: "",
+  theme: "",
+  card: "",
+  addToCardForm: ""
 };
 
 export const FontAwesome = {
@@ -20,6 +20,7 @@ export const FontAwesome = {
   google: String.fromCharCode(61856),
   facebook: String.fromCharCode(61594),
   plus: String.fromCharCode(61543),
+  minus: String.fromCharCode(61544),
   search: String.fromCharCode(61442),
   smile: String.fromCharCode(61720),
   chevronRight: String.fromCharCode(61524),
@@ -27,4 +28,5 @@ export const FontAwesome = {
   bars: String.fromCharCode(61641),
   slashEye: String.fromCharCode(61552),
   github: String.fromCharCode(61595),
+  calendar: String.fromCharCode(61555)
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, Keyboard } from "react-native";
+import { View, Image, Keyboard, StyleSheet } from "react-native";
 import {
   RkButton,
   RkText,
@@ -8,6 +8,7 @@ import {
   RkTheme,
   RkAvoidKeyboard
 } from "react-native-ui-kitten";
+import { FontAwesome } from "../../assets/icons";
 import { GradientButton } from "../../components/";
 import { scale, scaleModerate, scaleVertical } from "../../utils/scale";
 
@@ -42,6 +43,15 @@ export class Start extends React.Component {
         onStartShouldSetResponder={e => true}
         onResponderRelease={e => Keyboard.dismiss()}
       >
+        <RkButton
+          style={styles.buttonProfile}
+          rkType="social"
+          onPress={() => {
+            this.props.navigation.navigate("Settings");
+          }}
+        >
+          <RkText rkType="awesome hero accentColor">{FontAwesome.bars}</RkText>
+        </RkButton>
         <View style={{ alignItems: "center" }}>
           {renderIcon()}
           <RkText rkType="h3">Inicio</RkText>
@@ -53,7 +63,7 @@ export class Start extends React.Component {
               rkType="large"
               text="Publicar"
               onPress={() => {
-                this.props.navigation.goBack();
+                this.props.navigation.navigate("Publish");
               }}
             />
             <GradientButton
@@ -61,7 +71,7 @@ export class Start extends React.Component {
               rkType="large3"
               text="Buscar"
               onPress={() => {
-                this.props.navigation.goBack();
+                this.props.navigation.navigate("Search");
               }}
             />
             <GradientButton
@@ -69,7 +79,7 @@ export class Start extends React.Component {
               rkType="large2"
               text="Notificaciones"
               onPress={() => {
-                this.props.navigation.goBack();
+                this.props.navigation.navigate("Notifications");
               }}
             />
           </View>
@@ -98,10 +108,22 @@ let styles = RkStyleSheet.create(theme => ({
     marginVertical: 20
   },
   buttons: {
+    flex: 1,
+    position: "absolute",
     flexDirection: "row",
     marginBottom: 24,
     marginHorizontal: 24,
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    alignSelf: "stretch"
+  },
+  buttonProfile: {
+    flex: 1,
+    flexDirection: "row",
+    marginBottom: 24,
+    marginHorizontal: 24,
+    position: "absolute",
+    top: 0,
+    right: 0
   },
   footer: {
     justifyContent: "flex-end"
