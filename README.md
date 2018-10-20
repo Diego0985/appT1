@@ -26,3 +26,12 @@ Screens:
 - Política de Privacidad
 - Términos y Condiciones
 - Cerrar Sesión
+
+* Mapas a la vista de la aplicacion
+* Resultados de Búsqueda
+* Ruta escogida búsqueda
+* Revisar y actualizar la api REST con cambios en BDD
+* Notificaciones
+* Probar el Login
+* Preguntar el escrito
+*

@@ -13,6 +13,7 @@ import { FontAwesome } from "../../assets/icons";
 import { scale, scaleModerate, scaleVertical } from "../../utils/scale";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import Moment from "moment";
+import MapView from "react-native-maps";
 
 export class Publish extends React.Component {
   constructor(props) {
@@ -133,6 +134,18 @@ export class Publish extends React.Component {
             <View>
               <View style={{ alignItems: "center" }}>
                 <RkText rkType="h3">Entrada Mapa</RkText>
+              </View>
+              <View style={{ alignItems: "center", alignContent: "center" }}>
+                <RkButton
+                  rkType="social"
+                  onPress={() => {
+                    this.props.navigation.navigate("Maps");
+                  }}
+                >
+                  <RkText rkType="awesome hero accentColor">
+                    {FontAwesome.map}
+                  </RkText>
+                </RkButton>
               </View>
 
               <RkText style={styles.subtitle} rkType="h3">
