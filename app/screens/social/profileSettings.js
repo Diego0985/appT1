@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, View, StyleSheet, Alert } from "react-native";
+import { ScrollView, View, StyleSheet, Alert, CheckBox } from "react-native";
 import {
   RkText,
   RkTextInput,
@@ -36,15 +36,33 @@ export class ProfileSettings extends React.Component {
       isDriver: false
     };
 
-    updateCarFields = () => {
-      this.setState({ carYear: "" });
+    alertUserNotDriver = () => {
+      if (this.state.isDriver)
+        Alert("Importante", "No eres conductor, el campo está bloqueado");
+    };
+
+    updateCarUser = check => {
+      this.setState({ isDriver: check });
+      if (!check) {
+        this.setState({
+          carLicensePlate: "",
+          carModel: "",
+          carBrand: "",
+          carSits: "",
+          carYear: "",
+          carType: ""
+        });
+      }
     };
   }
 
   render() {
     return (
-      <ScrollView style={styles.root}>
-        <RkAvoidKeyboard>
+      <RkAvoidKeyboard>
+        <View style={{ alignItems: "center" }}>
+          <RkText rkType="h1">Perfil</RkText>
+        </View>
+        <ScrollView style={styles.root}>
           <View style={styles.header}>
             <Avatar img={this.user.photo} rkType="big" />
           </View>
@@ -127,16 +145,15 @@ export class ProfileSettings extends React.Component {
             </View>
             <View style={styles.rowSwitch}>
               <RkText rkType="header6">¿Eres conductor?</RkText>
-              <RkChoice
-                selected={this.state.isDriver}
-                onPress={() =>
-                  this.setState({ isDriver: !this.state.isDriver })
-                }
+              <CheckBox
+                value={this.state.isDriver}
+                onValueChange={isDriver => updateCarUser(isDriver)}
               />
             </View>
             <View style={styles.row}>
               <RkTextInput
                 label="Num. Placa"
+                editable={this.state.isDriver}
                 value={this.state.carLicensePlate}
                 onChangeText={text => this.setState({ carLicensePlate: text })}
                 rkType="right clear"
@@ -145,6 +162,7 @@ export class ProfileSettings extends React.Component {
             <View style={styles.row}>
               <RkTextInput
                 label="Modelo"
+                editable={this.state.isDriver}
                 value={this.state.carModel}
                 onChangeText={text => this.setState({ carModel: text })}
                 rkType="right clear"
@@ -153,6 +171,7 @@ export class ProfileSettings extends React.Component {
             <View style={styles.row}>
               <RkTextInput
                 label="Marca"
+                editable={this.state.isDriver}
                 value={this.state.carBrand}
                 onChangeText={text => this.setState({ carBrand: text })}
                 rkType="right clear"
@@ -160,7 +179,17 @@ export class ProfileSettings extends React.Component {
             </View>
             <View style={styles.row}>
               <RkTextInput
+                label="Tipo"
+                editable={this.state.isDriver}
+                value={this.state.carType}
+                onChangeText={text => this.setState({ carType: text })}
+                rkType="right clear"
+              />
+            </View>
+            <View style={styles.row}>
+              <RkTextInput
                 label="Num. Asientos"
+                editable={this.state.isDriver}
                 value={this.state.carSits}
                 onChangeText={text => this.setState({ carSits: text })}
                 rkType="right clear"
@@ -169,6 +198,7 @@ export class ProfileSettings extends React.Component {
             <View style={styles.row}>
               <RkTextInput
                 label="Año"
+                editable={this.state.isDriver}
                 value={this.state.carYear}
                 onChangeText={text => this.setState({ carYear: text })}
                 rkType="right clear"
@@ -176,8 +206,9 @@ export class ProfileSettings extends React.Component {
             </View>
           </View>
           <GradientButton rkType="large" style={styles.button} text="GUARDAR" />
-        </RkAvoidKeyboard>
-      </ScrollView>
+          <View style={styles.space} />
+        </ScrollView>
+      </RkAvoidKeyboard>
     );
   }
 }
@@ -217,5 +248,12 @@ let styles = RkStyleSheet.create(theme => ({
   },
   switch: {
     marginVertical: 14
+  },
+  space: {
+    flex: 1,
+    marginBottom: 30,
+    marginHorizontal: 30,
+    justifyContent: "space-around",
+    alignSelf: "stretch"
   }
 }));

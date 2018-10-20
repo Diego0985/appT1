@@ -52,6 +52,7 @@ export class Start extends React.Component {
         >
           <RkText rkType="awesome hero accentColor">{FontAwesome.bars}</RkText>
         </RkButton>
+        <View style={styles.space} />
         <View style={{ alignItems: "center" }}>
           {renderIcon()}
           <RkText rkType="h3">Inicio</RkText>
@@ -119,8 +120,9 @@ let styles = RkStyleSheet.create(theme => ({
   buttonProfile: {
     flex: 1,
     flexDirection: "row",
-    marginBottom: 24,
-    marginHorizontal: 24,
+    marginBottom: 30,
+    marginHorizontal: 30,
+    padding: 30,
     position: "absolute",
     top: 0,
     right: 0
@@ -131,5 +133,12 @@ let styles = RkStyleSheet.create(theme => ({
   textRow: {
     flexDirection: "row",
     justifyContent: "center"
+  },
+  space: {
+    flex: 1,
+    marginBottom: 30,
+    marginHorizontal: 30,
+    justifyContent: "space-around",
+    alignSelf: "stretch"
   }
 }));
