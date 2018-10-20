@@ -121,8 +121,9 @@ let styles = RkStyleSheet.create(theme => ({
     flex: 1,
     flexDirection: "row",
     marginBottom: 30,
-    marginHorizontal: 30,
+    marginHorizontal: 15,
     padding: 30,
+    marginTop: 15,
     position: "absolute",
     top: 0,
     right: 0

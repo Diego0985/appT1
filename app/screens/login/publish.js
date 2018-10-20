@@ -28,7 +28,7 @@ export class Publish extends React.Component {
       (today.getDate() + 1);
 
     this.state = {
-      title: "Nuevo título",
+      title: "",
       beginDate: date,
       endDate: date2,
       beginTime: "07:00",
@@ -140,6 +140,7 @@ export class Publish extends React.Component {
               </RkText>
               <RkTextInput
                 rkType="rigth clear form"
+                placeholder="Nuevo Titulo"
                 label=" "
                 value={this.state.title}
                 onChangeText={text => this.setState({ title: text })}
